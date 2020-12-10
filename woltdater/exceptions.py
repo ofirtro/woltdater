@@ -1,0 +1,2 @@
+class RestaurantWasNotFoundException(Exception):
+    pass
