@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     description='Telepytgram Wolt updater bot',
     install_requires=['emoji', 'aiogram', 'aiohttp', 'click'],
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     license='GPLv3',
     author='Ofir Troushinsky',
     entry_points={
