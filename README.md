@@ -1,6 +1,6 @@
 *Please :star: this repo if you find it useful*
 
-# woltdater 
+# Woltdater 
 
 
 Woltdater is a cool Telegram bot which let you know when restaurant is open for reservations.
