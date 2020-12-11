@@ -9,19 +9,19 @@ class AbstractMemoryPlugin:
         """
         raise NotImplementedError
 
-    async def get_chat_ids_for_restaurant(self, restaurant_symbol: str) -> set:
+    async def get_chat_ids_for_restaurant(self, restaurant_url: str) -> set:
         """
         Get all subscribed chat ids for specific restaurant
         """
         raise NotImplementedError
 
-    async def subscribe(self, restaurant_symbol: str, chat_id: int) -> None:
+    async def subscribe(self, restaurant_url: str, chat_id: int) -> None:
         """
         Subscribe chat id to specific restaurant
         """
         raise NotImplementedError
 
-    async def unsubscribe(self, restaurant_symbol: str, chat_id: int) -> None:
+    async def unsubscribe(self, restaurant_url: str, chat_id: int) -> None:
         """
         Unsubscribe chat id for specific restaurant
         """
