@@ -16,6 +16,6 @@ WELCOME_MSG = emojize("Hi!\n"
                       "Then, write it to me and I'll let you know when it is open :+1:"
                       )
 WOLTDATER_API_TOKEN_KEY = 'WOLTDATER_API_TOKEN'
-RESTAURANT_NOT_FOUND_MSG = 'Restaurant was not found! :cry:'
+RESTAURANT_NOT_FOUND_MSG = emojize('Restaurant was not found! :cry:')
 WILL_UPDATE_MSG = "I'll let you know when {restaurant_symbol} is open!"
 UPDATE_INTERVAL_IN_SECONDS = 60

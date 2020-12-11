@@ -27,7 +27,7 @@ async def check_status(message: types.Message, memory_plugin: AbstractMemoryPlug
             await message.reply(VENUE_OPEN_MSG.format(restaurant_symbol=message.text))
         else:
             await message.reply(WILL_UPDATE_MSG.format(restaurant_symbol=message.text))
-            await memory_plugin.subscribe(message.text, message.chat.id)
+            await memory_plugin.subscribe(message.text.lower(), message.chat.id)
     except RestaurantWasNotFoundException:
         await message.reply(RESTAURANT_NOT_FOUND_MSG)
 
