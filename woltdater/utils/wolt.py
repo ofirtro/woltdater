@@ -1,6 +1,6 @@
 import aiohttp
 
-from woltdater.consts import WOLT_API_URL, WOKT_OK_STATUS
+from woltdater.consts import WOLT_API_URL, WOLT_OK_STATUS
 from woltdater.exceptions import RestaurantWasNotFoundException
 
 
@@ -11,7 +11,7 @@ async def get_restaurant_data(restaurant_symbol: str) -> dict:
     async with aiohttp.ClientSession() as session:
         async with session.get(WOLT_API_URL.format(restaurant_symbol=restaurant_symbol)) as response:
             response_json = await response.json()
-            if response_json['status'] != WOKT_OK_STATUS:
+            if response_json['status'] != WOLT_OK_STATUS:
                 raise RestaurantWasNotFoundException()
             return response_json
 

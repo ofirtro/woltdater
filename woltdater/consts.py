@@ -9,4 +9,4 @@ RESTAURANT_NOT_FOUND_MSG = emojize('Restaurant was not found! :cry:')
 WILL_UPDATE_MSG = "I'll let you know when {restaurant_symbol} is open!"
 UPDATE_INTERVAL_IN_SECONDS = 60
 WOLT_API_URL = 'https://restaurant-api.wolt.com/v3/venues/slug/{restaurant_symbol}'
-WOKT_OK_STATUS = 'OK'
+WOLT_OK_STATUS = 'OK'
