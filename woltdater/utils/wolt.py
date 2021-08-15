@@ -1,10 +1,7 @@
 import aiohttp
-import json
 
-from consts import WOLT_API_URL, WOLT_OK_STATUS, WOLT_API_SEARCH_URL, WOLT_API_TLV_LOCATION, WOLT_FOUND_STATUS, WOLT_API_ID_URL
-from exceptions import RestaurantWasNotFoundException
-# from woltdater.consts import WOLT_API_URL, WOLT_OK_STATUS, WOLT_API_SEARCH_URL, WOLT_API_TLV_LOCATION, WOLT_FOUND_STATUS
-# from woltdater.exceptions import RestaurantWasNotFoundException
+from woltdater.consts import WOLT_API_URL, WOLT_OK_STATUS, WOLT_API_SEARCH_URL, WOLT_API_TLV_LOCATION, WOLT_FOUND_STATUS, WOLT_API_ID_URL
+from woltdater.exceptions import RestaurantWasNotFoundException
 
 
 async def get_restaurant_data(restaurant_symbol: str) -> dict:
@@ -28,9 +25,9 @@ async def is_venue_available_status(restaurant_symbol: str) -> bool:
 
 
 async def search_vanue_by_name(searchKey: str) -> list:
-    '''
+    """
     Search venue by venue name
-    '''
+    """
     async with aiohttp.ClientSession() as session:
         async with session.get(WOLT_API_SEARCH_URL.format(searchKey=searchKey.replace(" ", '+'), location = WOLT_API_TLV_LOCATION)) as response:
             result = await response.json()
@@ -48,6 +45,9 @@ async def search_vanue_by_name(searchKey: str) -> list:
             return toReturn
 
 async def get_vanue_by_id(id: str) -> dict:
+    """
+    Search venue by id
+    """
     async with aiohttp.ClientSession() as session:
         async with session.get(WOLT_API_ID_URL.format(venueId=id)) as response:
             response_json = await response.json()

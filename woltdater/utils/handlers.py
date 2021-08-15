@@ -5,23 +5,18 @@ from aiogram import types, Dispatcher, Bot
 
 
 
-from consts import VENUE_OPEN_MSG, WILL_UPDATE_MSG, RESTAURANT_NOT_FOUND_MSG, WELCOME_MSG
-from exceptions import RestaurantWasNotFoundException
-from plugins import AbstractMemoryPlugin
-from utils.updater import get_restaurant_symbol_from_url
-from utils.wolt import is_venue_available_status , search_vanue_by_name , get_vanue_by_id
-# from woltdater.consts import VENUE_OPEN_MSG, WILL_UPDATE_MSG, RESTAURANT_NOT_FOUND_MSG, WELCOME_MSG
-# from woltdater.exceptions import RestaurantWasNotFoundException
-# from woltdater.plugins import AbstractMemoryPlugin
-# from woltdater.utils.updater import get_restaurant_symbol_from_url
-# from woltdater.utils.wolt import is_venue_available_status , search_vanue_by_name
+from woltdater.consts import VENUE_OPEN_MSG, WILL_UPDATE_MSG, RESTAURANT_NOT_FOUND_MSG, WELCOME_MSG
+from woltdater.exceptions import RestaurantWasNotFoundException
+from woltdater.plugins import AbstractMemoryPlugin
+from woltdater.utils.updater import get_restaurant_symbol_from_url
+from woltdater.utils.wolt import is_venue_available_status , search_vanue_by_name , get_vanue_by_id
 
 
 def keyboard_maker(venues: list):
     kb = types.InlineKeyboardMarkup()
     for i in venues:
         kb.add(types.InlineKeyboardButton(f"{i['name']}, {i['city']}\n", 
-                                            callback_data = i['id']))
+                                            callback_data = i['id'])) #callback data is limited to 64 bytes
     return kb
 
 
