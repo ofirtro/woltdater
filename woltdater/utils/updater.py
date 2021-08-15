@@ -4,9 +4,12 @@ import logging
 from aiogram import Bot
 from aiogram.utils.exceptions import TelegramAPIError
 
-from woltdater.consts import VENUE_OPEN_MSG, UPDATE_INTERVAL_IN_SECONDS
-from woltdater.plugins import AbstractMemoryPlugin
-from woltdater.utils.wolt import is_venue_available_status
+from consts import VENUE_OPEN_MSG, UPDATE_INTERVAL_IN_SECONDS
+from plugins import AbstractMemoryPlugin
+from utils.wolt import is_venue_available_status
+# from woltdater.consts import VENUE_OPEN_MSG, UPDATE_INTERVAL_IN_SECONDS
+# from woltdater.plugins import AbstractMemoryPlugin
+# from woltdater.utils.wolt import is_venue_available_status
 
 
 def get_restaurant_symbol_from_url(restaurant_url: str) -> str:

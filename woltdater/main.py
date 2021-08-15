@@ -6,10 +6,14 @@ import click
 from aiogram import Bot, Dispatcher
 from aiogram.utils import executor
 
-from woltdater.consts import WOLTDATER_API_TOKEN_KEY
-from woltdater.plugins import InMemoryPlugin
-from woltdater.utils import setup_handlers
-from woltdater.utils import update_forever
+from consts import WOLTDATER_API_TOKEN_KEY
+from plugins import InMemoryPlugin
+from utils import setup_handlers
+from utils import update_forever
+# from woltdater.consts import WOLTDATER_API_TOKEN_KEY
+# from woltdater.plugins import InMemoryPlugin
+# from woltdater.utils import setup_handlers
+# from woltdater.utils import update_forever
 
 logging.basicConfig(level=logging.INFO)
 
@@ -22,7 +26,7 @@ def main(api_token: str):
     bot = Bot(token=api_token)
     dp = Dispatcher(bot)
     loop.create_task(update_forever(bot, memory_plugin))
-    setup_handlers(dp, memory_plugin)
+    setup_handlers(dp, memory_plugin, bot)
     executor.start_polling(dp, skip_updates=True)
 
 
