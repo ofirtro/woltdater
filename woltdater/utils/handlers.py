@@ -5,7 +5,7 @@ from aiogram import types, Dispatcher, Bot
 
 
 
-from woltdater.consts import VENUE_OPEN_MSG, WILL_UPDATE_MSG, RESTAURANT_NOT_FOUND_MSG, WELCOME_MSG
+from woltdater.consts import VENUE_OPEN_MSG, WILL_UPDATE_MSG, RESTAURANT_NOT_FOUND_MSG, WELCOME_MSG, SEARCH_LIST_TITLE
 from woltdater.exceptions import RestaurantWasNotFoundException
 from woltdater.plugins import AbstractMemoryPlugin
 from woltdater.utils.updater import get_restaurant_symbol_from_url
@@ -47,7 +47,7 @@ async def check_status(message: types.Message, memory_plugin: AbstractMemoryPlug
         if venue:
             if len(venue) > 1:
                 kb = keyboard_maker(venue)
-                await message.answer("Which venue?\n", reply_markup=kb)
+                await message.answer(SEARCH_LIST_TITLE, reply_markup=kb)
             else:
                 if venue[0]["online"]:
                     await message.answer(VENUE_OPEN_MSG.format(name=venue[0]['name']))
