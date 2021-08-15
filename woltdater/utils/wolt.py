@@ -21,7 +21,7 @@ async def get_restaurant_data(restaurant_symbol: str) -> dict:
 
 async def is_venue_available_status(restaurant_symbol: str) -> bool:
     """
-    The function returns whether the restaurant's venue is open or closed
+    The function returns whether the restaurant's venue is online or offline
     """
     data = await get_restaurant_data(restaurant_symbol)
     return data['results'][0]['online']
@@ -36,7 +36,6 @@ async def search_vanue_by_name(searchKey: str) -> list:
             result = await response.json()
             if result['sections'][0]['name'] != WOLT_FOUND_STATUS:
                 return None
-                raise NoSearchResultException
             toReturn = list();
             for i in result['sections'][0]['items']:
                 toReturn.append(dict({
