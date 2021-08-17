@@ -6,10 +6,6 @@ import click
 from aiogram import Bot, Dispatcher
 from aiogram.utils import executor
 
-# from consts import WOLTDATER_API_TOKEN_KEY
-# from plugins import InMemoryPlugin
-# from utils import setup_handlers
-# from utils import update_forever
 from woltdater.consts import WOLTDATER_API_TOKEN_KEY
 from woltdater.plugins import InMemoryPlugin
 from woltdater.utils import setup_handlers
