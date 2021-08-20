@@ -33,16 +33,16 @@ async def search_vanue_by_name(searchKey: str) -> list:
             result = await response.json()
             if result['sections'][0]['name'] != WOLT_FOUND_STATUS:
                 return None
-            toReturn = list();
+            venues = list();
             for i in result['sections'][0]['items']:
-                toReturn.append(dict({
+                venues.append(dict({
                     'name' : i['venue']['name'], 
                     'address' : i['venue']['address'], 
                     'city' : i['venue']['city'], 
                     'id' : i['venue']['id'], 
                     'slug' : i['venue']['slug'], 
                     'online' : i['venue']['online']}))
-            return toReturn
+            return venues
 
 async def get_vanue_by_id(id: str) -> dict:
     """
