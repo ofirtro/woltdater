@@ -20,7 +20,7 @@ async def update_subscriber(bot: Bot, chat_id: int, memory_plugin: AbstractMemor
     Update subscriber and unsubscribe him for the specific restaurant
     """
     try:
-        venue_name = await get_restaurant_data(restaurant_symbol)['results'][0]["name"][0]["value"]
+        venue_name = (await get_restaurant_data(restaurant_symbol))['results'][0]["name"][0]["value"]
         await bot.send_message(chat_id=chat_id, text=VENUE_OPEN_MSG.format(restaurant_name=venue_name))
     except TelegramAPIError:
         logging.exception(f'Unable to update chat {chat_id}')
