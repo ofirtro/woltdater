@@ -57,6 +57,8 @@ async def check_status(message: types.Message, memory_plugin: AbstractMemoryPlug
                 await message.answer(SEARCH_LIST_TITLE, reply_markup=kb)
             else:
                 restaurant_symbol = venue[0]["slug"]
+        else:
+            await message.answer(RESTAURANT_NOT_FOUND_MSG)
 
     if restaurant_symbol:
         await subscribe_to_venue(message, memory_plugin, restaurant_symbol)
