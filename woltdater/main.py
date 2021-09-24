@@ -22,7 +22,7 @@ def main(api_token: str):
     bot = Bot(token=api_token)
     dp = Dispatcher(bot)
     loop.create_task(update_forever(bot, memory_plugin))
-    setup_handlers(dp, memory_plugin)
+    setup_handlers(dp, memory_plugin, bot)
     executor.start_polling(dp, skip_updates=True)
 
 

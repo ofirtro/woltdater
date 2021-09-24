@@ -6,8 +6,7 @@ from aiogram.utils.exceptions import TelegramAPIError
 
 from woltdater.consts import VENUE_OPEN_MSG, UPDATE_INTERVAL_IN_SECONDS
 from woltdater.plugins import AbstractMemoryPlugin
-from woltdater.utils.wolt import is_venue_available_status
-
+from woltdater.utils.wolt import is_venue_available_status, get_restaurant_data
 
 def get_restaurant_symbol_from_url(restaurant_url: str) -> str:
     """
@@ -21,7 +20,8 @@ async def update_subscriber(bot: Bot, chat_id: int, memory_plugin: AbstractMemor
     Update subscriber and unsubscribe him for the specific restaurant
     """
     try:
-        await bot.send_message(chat_id=chat_id, text=VENUE_OPEN_MSG.format(restaurant_symbol=restaurant_symbol))
+        venue_name = (await get_restaurant_data(restaurant_symbol))['results'][0]["name"][0]["value"]
+        await bot.send_message(chat_id=chat_id, text=VENUE_OPEN_MSG.format(restaurant_name=venue_name))
     except TelegramAPIError:
         logging.exception(f'Unable to update chat {chat_id}')
     finally:
